@@ -17,19 +17,12 @@ int main() {
 
         cout << n << "\t" << fn << "\t" << gn;
 
-        if(fn >= gn)
-            cout << "  ✔";
-        else
-            cout << "  ✘";
-
-        cout << endl;
-
         file << n << "," << fn << "," << gn << "\n";
     }
 
     file.close();
 
-    cout << "\nFile 'q2.csv' created\n";
+    cout << "\nFile 'second.csv' created\n";
     cout << "c = 3, n0 = 1\n";
 
     return 0;

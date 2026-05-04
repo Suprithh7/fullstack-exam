@@ -15,14 +15,7 @@ int main() {
         int fn = 7*n + 5;
         int gn = c * n;
 
-        cout << n << "\t" << fn << "\t" << gn;
-
-        if(fn <= gn)
-            cout << "  ✔";
-        else
-            cout << "  ✘";
-
-        cout << endl;
+        cout << n << "\t" << fn << "\t" << gn << endl;
 
         // write to file
         file << n << "," << fn << "," << gn << "\n";
@@ -30,6 +23,6 @@ int main() {
 
     file.close();
 
-    cout << "\nCSV file 'graph.csv' created.\n";
+    cout << "\nCSV file 'graph1.csv' created.\n";
     return 0;
 }
