@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Checker</title>
+
+    <style>
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background:#f2f2f2;
+            font-family:Arial;
+        }
+
+        .box{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:350px;
+            box-shadow:0px 10px 10px gray;
+        }
+
+        .input-box{
+            position:relative;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            font-size:16px;
+        }
+
+        .eye{
+            position:absolute;
+            right:10px;
+            top:10px;
+            cursor:pointer;
+        }
+
+        .valid{
+            color:green;
+        }
+
+        .invalid{
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h2>Password Strength Checker</h2>
+
+        <div class="input-box">
+            <input type="password" id="password" placeholder="Enter Password">
+
+            <span class="eye" onclick="togglePassword()">
+                show
+            </span>
+        </div>
+
+        <p id="length" class="invalid">
+            &#10008; Minimum 8 characters
+        </p>
+
+        <p id="upper" class="invalid">
+            &#10008; One uppercase letter
+        </p>
+
+        <p id="number" class="invalid">
+            &#10008; One number
+        </p>
+
+        <p id="special" class="invalid">
+            &#10008; One special character
+        </p>
+
+    </div>
+
+    <script>
+
+        let password = document.getElementById("password");
+
+        let lengthText = document.getElementById("length");
+        let upperText = document.getElementById("upper");
+        let numberText = document.getElementById("number");
+        let specialText = document.getElementById("special");
+
+        password.addEventListener("keyup", function(){
+
+            let value = password.value;
+
+            // Length
+            if(value.length >= 8){
+                lengthText.className = "valid";
+                lengthText.innerHTML = "&#10004; Minimum 8 characters";
+            }
+            else{
+                lengthText.className = "invalid";
+                lengthText.innerHTML = "&#10008; Minimum 8 characters";
+            }
+
+            // Uppercase
+            if(/[A-Z]/.test(value)){
+                upperText.className = "valid";
+                upperText.innerHTML = "&#10004; One uppercase letter";
+            }
+            else{
+                upperText.className = "invalid";
+                upperText.innerHTML = "&#10008; One uppercase letter";
+            }
+
+            // Number
+            if(/[0-9]/.test(value)){
+                numberText.className = "valid";
+                numberText.innerHTML = "&#10004; One number";
+            }
+            else{
+                numberText.className = "invalid";
+                numberText.innerHTML = "&#10008; One number";
+            }
+
+            // Special Character
+            if(/[!@#$%^&*]/.test(value)){
+                specialText.className = "valid";
+                specialText.innerHTML = "&#10004; One special character";
+            }
+            else{
+                specialText.className = "invalid";
+                specialText.innerHTML = "&#10008; One special character";
+            }
+
+        });
+
+        // Show / Hide Password
+        function togglePassword(){
+
+            if(password.type === "password"){
+                password.type = "text";
+            }
+            else{
+                password.type = "password";
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

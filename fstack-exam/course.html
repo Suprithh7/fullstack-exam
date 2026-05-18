@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Registration Form</title>
+
+    <style>
+        body{
+            font-family:Arial;
+            background:#f2f2f2;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .box{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:350px;
+            box-shadow:0px 4px 10px gray;
+        }
+
+        h2{
+            text-align:center;
+        }
+
+        input, select{
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            margin-top:15px;
+            background:blue;
+            color:white;
+            border:none;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        #result{
+            margin-top:20px;
+            color:green;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h2>Course Registration</h2>
+
+        <input type="text" id="name" placeholder="Enter Name">
+
+        <input type="email" id="email" placeholder="Enter Email">
+
+        <select id="course">
+            <option>Select Course</option>
+            <option>Full Stack</option>
+            <option>AI & ML</option>
+            <option>Cyber Security</option>
+        </select>
+
+        <button onclick="register()">
+            Register
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+
+        function register(){
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let course = document.getElementById("course").value;
+
+            document.getElementById("result").innerHTML =
+            "Student " + name + " registered successfully for " + course;
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arithmetic Calculator</title>
+
+    <style>
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background:#f2f2f2;
+            font-family:Arial;
+        }
+
+        .box{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            width:300px;
+            text-align:center;
+            box-shadow:0px 4px 10px gray;
+        }
+
+        input{
+            width:90%;
+            padding:10px;
+            margin:10px;
+            font-size:16px;
+        }
+
+        button{
+            padding:10px 15px;
+            margin:5px;
+            border:none;
+            background:blue;
+            color:white;
+            cursor:pointer;
+            border-radius:5px;
+        }
+
+        h2{
+            margin-top:20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h1>Calculator</h1>
+
+        <input type="number" id="num1" placeholder="Enter First Number">
+
+        <input type="number" id="num2" placeholder="Enter Second Number">
+
+        <div>
+            <button onclick="add()">+</button>
+            <button onclick="sub()">-</button>
+            <button onclick="mul()">*</button>
+            <button onclick="div()">/</button>
+        </div>
+
+        <h2 id="result">Result: </h2>
+
+    </div>
+
+    <script>
+        function getValues() {
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+            return [Number(num1), Number(num2)];
+        }
+
+        function updateResult(value) {
+            document.getElementById("result").textContent = "Result: " + value;
+        }
+
+        function add() {
+            const [a, b] = getValues();
+            updateResult(a + b);
+        }
+
+        function sub() {
+            const [a, b] = getValues();
+            updateResult(a - b);
+        }
+
+        function mul() {
+            const [a, b] = getValues();
+            updateResult(a * b);
+        }
+
+        function div() {
+            const [a, b] = getValues();
+            updateResult(b === 0 ? "Cannot divide by zero" : a / b);
+        }
+    </script>
+
+</body>
+</html>

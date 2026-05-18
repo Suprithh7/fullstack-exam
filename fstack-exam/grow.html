@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Animation</title>
+
+    <style>
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background:#f2f2f2;
+            font-family:Arial;
+        }
+
+        #text{
+            font-size:30px;
+            color:red;
+            transition:0.5s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="text">Welcome</h1>
+
+    <script>
+
+        let text = document.getElementById("text");
+
+        let size = 30;
+        let grow = true;
+
+        setInterval(function(){
+
+            // Enlarge
+            if(grow){
+                size += 5;
+                text.style.color = "blue";
+                text.innerHTML = "Growing Text";
+            }
+
+            // Shrink
+            else{
+                size -= 5;
+                text.style.color = "red";
+                text.innerHTML = "Shrinking Text";
+            }
+
+            text.style.fontSize = size + "px";
+
+            // Change direction
+            if(size >= 60){
+                grow = false;
+            }
+
+            if(size <= 30){
+                grow = true;
+            }
+
+        }, 500);
+
+    </script>
+
+</body>
+</html>
